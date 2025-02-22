@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Piirrosmerkit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tyylit.css">
+</head>
+
+<script>
+function vaihdaKuva(sw) {
+    var pic;
+    if (sw == 0) {
+        pic = "../kuvat/diodi.png";
+    } else if (sw == 1) {
+        pic = "../kuvat/kaami.png";
+    } else if (sw == 2) {
+        pic = "../kuvat/kondensaattori.png";
+    } else if (sw == 3) {
+        pic = "../kuvat/polttimo.png";
+    } else if (sw == 4) {
+        pic = "../kuvat/sulake.png";
+    } else if (sw == 5) {
+        pic = "../kuvat/transistori.png";
+    } else if (sw == 6) {
+        pic = "../kuvat/tyristori.png";
+    } else if (sw == 7) {
+        pic = "../kuvat/vastus.png";
+    }
+    document.getElementById('komponenttiKuva').src = pic;
+}
+</script>
+
+<body>
+<h3>Elektroniikan piirrosmerkkejä</h3>
+    <p>Selaa eri piirrosmerkkejä klikkaamalla komponentin nimeä.</p>
+    
+
+<img id="komponenttiKuva" src="../kuvat/diodi.png" width="200" height="200">
+
+<p>
+<button type="button" onclick="vaihdaKuva(0)">Diodi</button>
+<button type="button" onclick="vaihdaKuva(1)">Käämi</button>
+<button type="button" onclick="vaihdaKuva(2)">Kondensaattori</button>
+<button type="button" onclick="vaihdaKuva(3)">Polttimo</button>
+<button type="button" onclick="vaihdaKuva(4)">Sulake</button>
+<button type="button" onclick="vaihdaKuva(5)">Transistori</button>
+<button type="button" onclick="vaihdaKuva(6)">Tyristori</button>
+<button type="button" onclick="vaihdaKuva(7)">Vastus</button>
+</p>
+
+<button type="button" onclick="window.location.href='../Index.html'">Palaa etusivulle</button>
+</body>
+</html>

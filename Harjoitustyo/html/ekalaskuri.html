@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohmin laki</title>
+
+<script>
+    function calculate() {
+        let value1 = parseFloat(document.getElementById('value1').value);
+        let value2 = parseFloat(document.getElementById('value2').value);
+        let calculationType = document.getElementById('calculationType').value;
+        let result;
+
+        if (calculationType === 'voltage') {
+            result = value1 * value2;
+        } else if (calculationType === 'current') {
+            result = value1 / value2;
+        } else if (calculationType === 'resistance') {
+            result = value1 / value2;
+        }
+
+        document.getElementById('result').innerText = 'Tulos: ' + result;
+
+        // Save result to local storage
+        localStorage.setItem('lastResult', result);
+    }
+
+    function loadLastResult() {
+        let lastResult = localStorage.getItem('lastResult');
+        if (lastResult !== null) {
+            document.getElementById('result').innerText = 'Viimeisin tulos: ' + lastResult;
+        }
+    }
+
+    window.onload = loadLastResult;
+</script>
+
+</head>
+<body>
+    <h1>Ohmin laki</h1>
+    <h2>Tässä voit laskea kahdella tunnetulla arvolla kolmannen arvon. Valitse valikosta haluatko laskea resistanssin (R)<br />
+        jännitteen (U) vai virran (I) Ohmin lain mukaan.</h2>
+    <h3>Resistansiin (R) yksikkö = Ohm <br/> Jännitteen (U) yksikkö = V <br/> Virran yksikkö (I) = A </h3>
+    <label for="value1">Arvo 1:</label>
+    <input type="number" id="value1" required>
+    <br>
+    <label for="value2">Arvo 2:</label>
+    <input type="number" id="value2" required>
+    <br>
+    <label for="calculationType">Laske:</label>
+    <select id="calculationType">
+        <option value="voltage">Jännite (U = I * R)</option>
+        <option value="current">Virta (I = U / R)</option>
+        <option value="resistance">Resistanssi (R = U / I)</option>
+    </select>
+    <br>
+    <button onclick="calculate()">Laske</button>
+    <p id="result">Tulos: </p>
+    <button type="button" onclick="window.location.href='../Index.html'">Palaa etusivulle</button>
+</body>
+</html>

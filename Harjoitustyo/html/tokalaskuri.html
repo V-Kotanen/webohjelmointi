@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehon laskeminen</title>
+    <script>
+        function calculate() {
+            let value1 = parseFloat(document.getElementById('value1').value);
+            let value2 = parseFloat(document.getElementById('value2').value);
+            let calculationType = document.getElementById('calculationType').value;
+            let result;
+
+            if (calculationType === 'power') {
+                result = value1 * value2;
+            } else if (calculationType === 'voltage') {
+                result = value1 / value2;
+            } else if (calculationType === 'current') {
+                result = value1 / value2;
+            }
+
+            document.getElementById('result').innerText = 'Tulos: ' + result;
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Tehon laskeminen</h1>
+    <h2>Tässä voit laskea kahdella tunnetulla arvolla kolmannen arvon. Valitse valikosta haluatko laskea tehon (P),<br />
+        jännitteen (U) vai virran (I) Ohmin lain mukaan.</h2>
+    <h3>Tehon (P) yksikkö = W <br/> Jännitteen (U) yksikkö = V <br/> Virran (I) yksikkö = A </h3>
+    <label for="value1">Arvo 1:</label>
+    <input type="number" id="value1" required>
+    <br>
+    <label for="value2">Arvo 2:</label>
+    <input type="number" id="value2" required>
+    <br>
+    <label for="calculationType">Laske:</label>
+    <select id="calculationType">
+        <option value="power">Teho (P = U * I)</option>
+        <option value="voltage">Jännite (U = P / I)</option>
+        <option value="current">Virta (I = P / U)</option>
+    </select>
+    <br>
+    <button onclick="calculate()">Laske</button>
+    <p id="result">Tulos: </p>
+    <button type="button" onclick="window.location.href='../Index.html'">Palaa etusivulle</button>
+</body>
+</html>
